@@ -1,0 +1,200 @@
+String 1 :
+RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag.
+String 2 :
+RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used.
+
+1. Find occurance of RUBY from string 1.
+
+1.9.3p194 :008 > puts string1.scan('RUBY').size()
+3
+
+
+2. Find the position where RUBY occures in the string 1.
+
+answer1============
+string1.to_enum(:scan,/(RUBY)/i).map do |m,|
+p [$`.size,m]
+end
+answer2============
+1.9.3p194 :111 > string1.to_enum(:scan,/(RUBY)/i).map {|m| print [$`.size]}
+[0][112][194] 
+
+
+3. Create array of words in string 1 & print them using a recursive function.
+
+1.9.3p194 :014 > string3=string1.split
+ => ["RUBY", "parses", "a", "file", "by", "looking", "for", "<br/>", "one", "of", "the", "special", "tags", "that", "tells", "it", "to", "start", "interpreting", "the", "text", "as", "RUBY", "code.", "The", "parser", "then", "executes", "all", "of", "the", "code", "it", "finds", "until", "it", "runs", "into", "a", "RUBY", "closing", "<br/>", "tag."] 
+
+
+4. Capitalise string 1
+
+Answer for capitalizing========
+1.9.3p194 :009 > string1.capitalize
+ => "Ruby parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as ruby code. the parser then executes all of the code it finds until it runs into a ruby closing <br/> tag."
+Answer for camel case========
+1.9.3p194 :063 > string1.split.map{|m| m.capitalize()}.join(" ")
+ => "Ruby Parses A File By Looking For <br/> One Of The Special Tags That Tells It To Start Interpreting The Text As Ruby Code. The Parser Then Executes All Of The Code It Finds Until It Runs Into A Ruby Closing <br/> Tag."
+
+
+5. Combine string 1 & 2.
+
+1.9.3p194 :012 > string1+string2
+ => "RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag.RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used." 
+
+
+6. Print string 1 & 2 using heredoc.
+
+1.9.3p194 :135 > print heredoc1
+RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag."
+1.9.3p194 :145 > heredoc2
+ => "RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used." 
+
+
+7. Print current date
+
+1.9.3p194 :026 > puts Time.now.strftime("%d-%m-%Y")
+13-09-2012
+1.9.3p194 :027 > puts Time.now.strftime("%x")
+09/13/12
+
+8. print 12th Jan 2012
+
+1.9.3p194 :155 > date.strftime("%dth %b %Y")
+ => "12th Jan 2012" 
+
+9. add 7 days in current date
+
+1.9.3p194 :043 > Time.now + (3600*24*7)
+ => 2012-09-20 18:04:32 +0530 
+
+
+10. Cut the string 1 into 4 parts & print it.
+
+Answer1====splitting string using no character
+1.9.3p194 :129 > print string1.split(" ",4)
+["RUBY", "parses", "a", "file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag."] => nil 
+
+answer2====splitting string using space character
+1.9.3p194 :130 > print string1.split("",4)
+["R", "U", "B", "Y parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag."]
+
+
+11. Divide the string 1 by occurances of '.'. Combine the array in reverse word sequence
+
+1.9.3p194 :116 > (string1.split('.')[0].split+string1.split('.')[1].split).reverse 
+ => ["tag", "<br/>", "closing", "RUBY", "a", "into", "runs", "it", "until", "finds", "it", "code", "the", "of", "all", "executes", "then", "parser", "The", "code", "RUBY", "as", "text", "the", "interpreting", "start", "to", "it", "tells", "that", "tags", "special", "the", "of", "one", "<br/>", "for", "looking", "by", "file", "a", "parses", "RUBY"] 
+
+
+12. Remove the HTML characters from st.
+1.9.3p194 :158 > string1.gsub(/<\/?[^>]*>/, "")
+ => "RUBY parses a file by looking for  one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing  tag."
+
+13. Print the 'RUBY' word from string 1 by traversing it using string functions
+
+1.9.3p194 :045 > puts string1.scan('RUBY')
+RUBY
+RUBY
+RUBY
+
+
+14. Find the length of string 1 & 2
+
+1.9.3p194 :046 > string1.length
+ => 217 
+1.9.3p194 :047 > string2.length
+ => 162 
+
+15. Create file & write string 1 to that file using RUBY functions.
+
+1.9.3p194 :131 > File.open("newfile.txt","w") {|f| f.write(string1)}
+ => 217
+
+
+16. Print all Global varibles provided by RUBY
+
+1.9.3p194 :085 > puts global_variables
+$;
+$-F
+$@
+$!
+$SAFE
+$~
+$&
+$`
+$'
+$+
+$=
+$KCODE
+$-K
+$,
+$/
+$-0
+$\
+$_
+$stdin
+$stdout
+$stderr
+$>
+$<
+$.
+$FILENAME
+$-i
+$*
+$?
+$$
+$:
+$-I
+$LOAD_PATH
+$"
+$LOADED_FEATURES
+$VERBOSE
+$-v
+$-w
+$-W
+$DEBUG
+$-d
+$0
+$PROGRAM_NAME
+$-p
+$-l
+$-a
+$binding
+$1
+$2
+$3
+$4
+$5
+$6
+$7
+$8
+$9
+
+19. Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates.
+
+1.9.3p194 :053 > date1= Time.mktime(2011,04,12)
+ => 2011-04-12 00:00:00 +0530 
+1.9.3p194 :054 > date2= Time.mktime(2011,05,12)
+ => 2011-05-12 00:00:00 +0530 
+ 1.9.3p194 :066 > date1>date2
+ => false 
+1.9.3p194 :067 > date1<date2
+ => true
+1.9.3p194 :082 > puts (date2-date1)/(3600*24)
+30.0
+
+
+20. Print date after 20 days from current date
+
+1.9.3p194 :048 > puts Time.now + (3600*24*20)
+2012-10-03 18:09:00 +0530
+
+
+21. Print date in array format.
+
+1.9.3p194 :050 > Time.now.to_a
+ => [4, 10, 18, 13, 9, 2012, 4, 257, false, "IST"] 
+
+
+
+
+
