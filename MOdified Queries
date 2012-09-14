@@ -1,0 +1,72 @@
+3.printing array elements in recursive order
+1.9.3p194 :023 > str2=string1.split
+ => ["RUBY", "parses", "a", "file", "by", "looking", "for", "<br/>", "one", "of", "the", "special", "tags", "that", "tells", "it", "to", "start", "interpreting", "the", "text", "as", "RUBY", "code.", "The", "parser", "then", "executes", "all", "of", "the", "code", "it", "finds", "until", "it", "runs", "into", "a", "RUBY", "closing", "<br/>", "tag."]
+
+1.9.3p194 :067 > def pr(strarr,i)
+1.9.3p194 :068?>   if i<=strarr.length
+1.9.3p194 :069?>     print strarr[i]
+1.9.3p194 :070?>     pr(strarr,i+1)
+1.9.3p194 :071?>     return 1
+1.9.3p194 :072?>     end
+1.9.3p194 :073?>   end
+
+1.9.3p194 :075 > pr(strarr,0)
+RUBYparsesafilebylookingfor<br/>oneofthespecialtagsthattellsittostartinterpretingthetextasRUBYcode.TheparserthenexecutesallofthecodeitfindsuntilitrunsintoaRUBYclosing<br/>tag.
+
+
+6.printing string1 and 2 using heredoc
+
+1.9.3p194 :001 > string1 = <<str1
+1.9.3p194 :002"> Ruby parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as ruby code. the parser then executes all of the code it finds until it runs into a ruby closing <br/> tag.
+1.9.3p194 :003"> str1
+ => "Ruby parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as ruby code. the parser then executes all of the code it finds until it runs into a ruby closing <br/> tag.\n" 
+1.9.3p194 :004 > print string1
+Ruby parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as ruby code. the parser then executes all of the code it finds until it runs into a ruby closing <br/> tag.
+
+1.9.3p194 :005 > string2 = <<str2
+1.9.3p194 :006"> RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used.
+1.9.3p194 :007"> str2
+ => "RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used.\n" 
+1.9.3p194 :008 > print string2
+RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used.
+
+
+
+8. print 12th Jan 2012
+Answer1==========
+1.9.3p194 :001 > Time.mktime(2012,1,12).strftime("%dth %b %Y")
+ => "12th Jan 2012"
+answer2==========
+
+9.add 7 days to current date
+
+1.9.3p194 :052 > require 'date'
+ => true 
+1.9.3p194 :060 > print DateTime.now + 7
+2012-09-21T15:16:25+05:30 => nil 
+
+
+11. Divide the string 1 by occurances of '.'. Combine the array in reverse word sequence
+
+1.9.3p194 :009 > ((string1.split('.')[0].split+string1.split('.')[1].split).reverse ).join(" ")
+ => "tag <br/> closing ruby a into runs it until finds it code the of all executes then parser the code ruby as text the interpreting start to it tells that tags special the of one <br/> for looking by file a parses Ruby
+
+
+19.Compare two dates 12-04-2011 and 12-05-2012
+
+1.9.3p194 :063 > Date.new(2011,04,12) <=> Date.new(2011,05,12)
+ => -1
+
+19b.Finding difference between two dates
+
+1.9.3p194 :065 > Date.new(2011,05,12)-Date.new(2011,04,12)
+ => (30/1)
+
+20. Print date after 20 days from current date
+
+1.9.3p194 :052 > require 'date'
+ => true 
+1.9.3p194 :064 > print DateTime.now + 20
+2012-09-21T15:16:25+05:30 => nil
+
+
